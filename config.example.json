@@ -1,0 +1,7 @@
+{
+  "mapping": {
+    "google": "https://google.com"
+  },
+  "default": "Eiyo!",
+  "port": 3000
+}
