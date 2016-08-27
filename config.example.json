@@ -1,7 +1,7 @@
 {
   "mapping": {
-    "google": "https://google.com"
+    "now-go": "https://github.com/amio/now-go"
   },
   "default": "Eiyo!",
-  "port": 3000
+  "port": 80
 }
