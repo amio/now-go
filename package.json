@@ -8,10 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "deep-assign": "^2.0.0",
     "micro": "^6.0.1"
   },
-  "engines" : {
-    "node" : ">=6.0.0"
+  "engines": {
+    "node": ">=6.0.0"
   },
   "repository": "amio/now-go",
   "author": "Amio <amio.cn@gmail.com>",

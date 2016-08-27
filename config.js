@@ -1,15 +1,20 @@
+const deepAssign = require('deep-assign')
+
 module.exports = function getConfig (configPath) {
   const defaultConfig = {
-    "default": "Now go, let legend come back to life!",
-    "mapping": {},
+    "routes": {
+      "?": "Now go, let legend come back to life!",
+    },
     "port": 3000
   }
   try {
     const userConfig = require(configPath)
-    return Object.assign(defaultConfig, userConfig)
+    return deepAssign(defaultConfig, userConfig)
   } catch (e) {
-    return Object.assign(defaultConfig, {
-      'default': 'ERROR >> ' + e.message
+    return deepAssign(defaultConfig, {
+      'routes': {
+        '?': 'ERROR >> ' + e.message
+      }
     })
   }
 }

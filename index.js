@@ -2,10 +2,10 @@ const path = require('path')
 const serve = require('./serve.js')
 
 const configPath = path.join(__dirname, 'config.json')
-const config = require('./config.js')(configPath)
+const { routes, port } = require('./config.js')(configPath)
 
 if (require.main === module) {
-  serve(config, config.port)
+  serve(routes, port)
 } else {
   module.exports = serve
 }
