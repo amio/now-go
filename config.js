@@ -3,7 +3,7 @@ const deepAssign = require('deep-assign')
 module.exports = function getConfig (configPath) {
   const defaultConfig = {
     "routes": {
-      "?": "Now go, let legend come back to life!",
+      "?": "What are you looking for",
     },
     "port": 3000
   }

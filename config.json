@@ -1,8 +1,8 @@
 {
   "routes": {
     "now-go": "https://github.com/amio/now-go",
-    "/": "Home path",
-    "?": "Unmatched path"
+    "/": "Now go, let the legend come back to life!",
+    "?": "What are you looking for"
   },
   "port": 3000
 }
