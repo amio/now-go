@@ -1,6 +1,7 @@
 {
   "routes": {
-    "now-go": "https://github.com/amio/now-go",
+    "home": "https://github.com/amio/now-go",
+    "author": "https://github.com/amio",
     "/": "Now go, let the legend come back to life!",
     "?": "What are you looking for"
   },
