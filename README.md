@@ -1,17 +1,17 @@
 # now-go [![npm-version][npm-badge]][npm-link]
 
-Deploy a personal tinyurl service to [now.sh](https://zeit.co/now/) in 1 minute.
+Deploy a personal tinyurl service to [now.sh][now] in 1 minute.
 
 <p align="center">
   <img src="https://cloud.githubusercontent.com/assets/215282/18083956/fd563db8-6ed7-11e6-955a-a107699cbd38.jpg" /><br/>
   <i>Now go, let the legend come back to life!</i>
 </p>
 
-### Usage
+## Usage
 
 ```bash
 # get the code
-git clone git@github.com:amio/now-go.git
+git clone --depth 1 git@github.com:amio/now-go.git
 
 # set up your redirection mapping in config.json
 vim now-go/config.json
@@ -22,16 +22,17 @@ now now-go
 
 That's it!
 
-And further more, you can set a shorter alias:
+And further more, you can set a shorten alias:
 
 ```bash
 now alias set api-ownv3nc9f8.now.sh my-api.now.sh
 ```
 
-If you don't have `now` yet, `npm install -g now`. An awesome tool for
-[realtime global deployments](https://zeit.co/now/).
+If you don't have `now` yet, `npm install -g now`.
+Don't miss this awesome tool for
+[realtime global deployments][now].
 
-### Live Example
+## Live Example
 
 The config for https://go.now.sh:
 
@@ -58,6 +59,7 @@ See it live:
 
 [MIT][mit] © [Amio][author]
 
+[now]:      https://zeit.co/now
 [npm-badge]:https://img.shields.io/npm/v/now-go.svg?style=flat-square
 [npm-link]: http://www.npmjs.com/package/now-go
 [mit]:      http://opensource.org/licenses/MIT
