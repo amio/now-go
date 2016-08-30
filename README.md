@@ -1,8 +1,13 @@
 # now-go [![npm-version][npm-badge]][npm-link]
 
-> Now go, let the legend come back to life!
+Deploy a personal tinyurl service to [now.sh](https://zeit.co/now/) in 1 minute.
 
-Deploy a personal tinyurl service to [now.sh](https://zeit.co/now/) in 1 minute:
+<p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/215282/18083956/fd563db8-6ed7-11e6-955a-a107699cbd38.jpg" /><br/>
+  <i>Now go, let the legend come back to life!</i>
+</p>
+
+### Usage
 
 ```bash
 # get the code
@@ -13,6 +18,14 @@ vim now-go/config.json
 
 # deploy to now.sh
 now now-go
+```
+
+That's it!
+
+And further more, you can set a shorter alias:
+
+```bash
+now alias set api-ownv3nc9f8.now.sh my-api.now.sh
 ```
 
 If you don't have `now` yet, `npm install -g now`. An awesome tool for
