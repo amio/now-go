@@ -1,10 +1,10 @@
 const path = require('path')
+const config = require('./go-config.js')
 const server = require('./go-server.js')
 
-const configPath = path.join(__dirname, 'config.json')
-const { routes, port } = require('./config.js')(configPath)
-
 if (require.main === module) {
+  const configPath = path.join(__dirname, 'config.json')
+  const { routes, port } = config(configPath)
   server(routes).listen(port)
 } else {
   module.exports = server
