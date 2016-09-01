@@ -2,9 +2,10 @@
   "name": "now-go",
   "version": "1.0.0",
   "description": "Personal tinyurl service.",
+  "bin": "cli.js",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node cli.js -c config.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
