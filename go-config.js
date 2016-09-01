@@ -1,20 +1,24 @@
 const deepAssign = require('deep-assign')
 
+const defaultConfig = {
+  'routes': {
+    '?': 'What are you looking for'
+  },
+  'port': 3000
+}
+
 module.exports = function getConfig (configPath) {
-  const defaultConfig = {
-    "routes": {
-      "?": "What are you looking for",
-    },
-    "port": 3000
-  }
-  try {
-    const userConfig = require(configPath)
-    return deepAssign(defaultConfig, userConfig)
-  } catch (e) {
-    return deepAssign(defaultConfig, {
-      'routes': {
-        '?': 'ERROR >> ' + e.message
-      }
-    })
-  }
+  return new Promise((resolve, reject) => {
+    try {
+      const userConfig = require(configPath)
+      resolve(deepAssign(defaultConfig, userConfig))
+    } catch (e) {
+      resolve(deepAssign(defaultConfig, {
+        'routes': {
+          '?': 'ERROR >> ' + e.message
+        }
+      }))
+    }
+    reject()
+  })
 }
