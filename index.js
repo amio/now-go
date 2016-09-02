@@ -1,15 +1,33 @@
 const micro = require('micro')
+const fetch = require('node-fetch')
 const deepAssign = require('deep-assign')
 
-// module.exports = start
-exports.start = startWithConfig
+module.exports = startWithConfig
 
-function startWithConfig (configPath) {
-  fetchLocalConfig(configPath).then(cfg => {
+// for tests
+// exports.startWithConfig = startWithConfig
+// exports.fetchLocalConfig = fetchLocalConfig
+// exports.fetchRemoteConfig = fetchRemoteConfig
+// exports.createRouter = createRouter
+
+function startWithConfig (configLocation) {
+  const gotConfig = isURL(configLocation)
+    ? fetchRemoteConfig(configLocation)
+    : fetchLocalConfig(configLocation)
+
+  gotConfig.then(cfg => {
     const { routes, port } = cfg
     const router = createRouter(routes)
-    micro((req, res) => router(req, res)).listen(port)
+
+    // Start server
+    micro((req, res) => {
+      router(req, res)
+    }).listen(port)
   }, err => console.error(err))
+}
+
+function fetchRemoteConfig (configURL) {
+  return fetch(configURL).then(res => res.json())
 }
 
 function fetchLocalConfig (configPath) {

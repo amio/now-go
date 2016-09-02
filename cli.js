@@ -1,5 +1,4 @@
-const path = require('path')
-const { start } = require('./index.js')
+const nowGo = require('./index.js')
 
 const args = require('minimist')(process.argv.slice(2), {
   alias: {
@@ -10,4 +9,4 @@ const args = require('minimist')(process.argv.slice(2), {
   }
 })
 
-start(path.join(__dirname, args.config))
+nowGo(args.config)
