@@ -10,6 +10,11 @@ module.exports = startWithConfig
 // exports.fetchRemoteConfig = fetchRemoteConfig
 // exports.createRouter = createRouter
 
+const defaultConfig = {
+  'routes': { '?': 'What are you looking for' },
+  'port': 3000
+}
+
 function startWithConfig (configLocation) {
   const gotConfig = isURL(configLocation)
     ? fetchRemoteConfig(configLocation)
@@ -17,25 +22,34 @@ function startWithConfig (configLocation) {
 
   gotConfig.then(cfg => {
     const { routes, port } = cfg
-    const router = createRouter(routes)
+    let go = createRouter(routes)
 
     // Start server
     micro((req, res) => {
-      router(req, res)
+      go(req, res)
+
+      // Update (remote) routes config when access "/"
+      if (req.url === '/' && isURL(configLocation)) {
+        fetchRemoteConfig(configLocation).then(cfg => {
+          go = createRouter(cfg.routes)
+        })
+      }
     }).listen(port)
   }, err => console.error(err))
 }
 
 function fetchRemoteConfig (configURL) {
   return fetch(configURL).then(res => res.json())
+  .then(cfg => {
+    return deepAssign(defaultConfig, cfg)
+  }, err => {
+    return deepAssign(defaultConfig, {
+      'routes': { '?': 'ERROR >> ' + err }
+    })
+  })
 }
 
 function fetchLocalConfig (configPath) {
-  const defaultConfig = {
-    'routes': { '?': 'What are you looking for' },
-    'port': 3000
-  }
-
   return new Promise((resolve, reject) => {
     try {
       const userConfig = require(configPath)
