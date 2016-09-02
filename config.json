@@ -1,7 +1,7 @@
 {
   "routes": {
     "home": "https://github.com/amio/now-go",
-    "author": "https://github.com/amio",
+    "myip": "PROXY >> https://httpbin.org/ip",
     "/": "Now go, let the legend come back to life!",
     "?": "What are you looking for"
   },

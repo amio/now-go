@@ -1,3 +1,4 @@
+const path = require('path')
 const micro = require('micro')
 const fetch = require('node-fetch')
 const deepAssign = require('deep-assign')
@@ -10,10 +11,12 @@ module.exports = startWithConfig
 // exports.fetchRemoteConfig = fetchRemoteConfig
 // exports.createRouter = createRouter
 
-const defaultConfig = {
+const DEFAULT_CONFIG = {
   'routes': { '?': 'What are you looking for' },
   'port': 3000
 }
+const PROXY_MODE_PREFIX = 'PROXY >> '
+const ERROR_MSG_PREFIX = 'ERROR >> '
 
 function startWithConfig (configLocation) {
   const gotConfig = isURL(configLocation)
@@ -26,14 +29,14 @@ function startWithConfig (configLocation) {
 
     // Start server
     micro((req, res) => {
-      go(req, res)
-
-      // Update (remote) routes config when access "/"
+      // Async Update (remote) routes config when access "/"
       if (req.url === '/' && isURL(configLocation)) {
         fetchRemoteConfig(configLocation).then(cfg => {
           go = createRouter(cfg.routes)
         })
       }
+
+      return go(req, res)
     }).listen(port)
   }, err => console.error(err))
 }
@@ -41,10 +44,11 @@ function startWithConfig (configLocation) {
 function fetchRemoteConfig (configURL) {
   return fetch(configURL).then(res => res.json())
   .then(cfg => {
-    return deepAssign(defaultConfig, cfg)
+    return deepAssign(DEFAULT_CONFIG, cfg)
   }, err => {
-    return deepAssign(defaultConfig, {
-      'routes': { '?': 'ERROR >> ' + err }
+    console.error(err)
+    return deepAssign(DEFAULT_CONFIG, {
+      'routes': { '?': ERROR_MSG_PREFIX + err }
     })
   })
 }
@@ -52,11 +56,12 @@ function fetchRemoteConfig (configURL) {
 function fetchLocalConfig (configPath) {
   return new Promise((resolve, reject) => {
     try {
-      const userConfig = require(configPath)
-      resolve(deepAssign(defaultConfig, userConfig))
+      const userConfig = require(path.resolve(configPath))
+      resolve(deepAssign(DEFAULT_CONFIG, userConfig))
     } catch (e) {
-      resolve(deepAssign(defaultConfig, {
-        'routes': { '?': 'ERROR >> ' + e.message }
+      console.error(e)
+      resolve(deepAssign(DEFAULT_CONFIG, {
+        'routes': { '?': ERROR_MSG_PREFIX + e.message }
       }))
     }
     reject()
@@ -64,19 +69,34 @@ function fetchLocalConfig (configPath) {
 }
 
 function createRouter (routes) {
-  return (req, res) => {
+  return function (req, res) {
+    fetch('https://httpbin.org/ip').then(r => r.json())
     const key = req.url.replace('/', '') || '/'
     const signpost = routes[key] || routes['?'] || 'Oops'
 
     if (isURL(signpost)) {
+      // redirection
       res.writeHead(301, { 'Location': signpost })
+    } else if (isPROXY(signpost)) {
+      // proxy
+      const url = signpost.replace(PROXY_MODE_PREFIX, '')
+      return fetch(url).then(r => {
+        res.setHeader('Content-Type', r.headers.get('Content-Type'))
+        return r.body
+      })
     } else {
-      const httpCode = routes[key] ? 200 : 404
-      micro.send(res, httpCode, signpost)
+      // echo
+      const statusCode = routes[key] ? 200 : 404
+      micro.send(res, statusCode, signpost)
     }
   }
 }
 
 function isURL (text) {
-  return /\w{2,6}:\/\/\w/.test(text)
+  return /^\w{2,6}:\/\/\w/.test(text)
+}
+
+function isPROXY (text) {
+  const hasPrefix = text.indexOf(PROXY_MODE_PREFIX) === 0
+  return hasPrefix && isURL(text.replace(PROXY_MODE_PREFIX, ''))
 }
