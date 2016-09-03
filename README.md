@@ -9,43 +9,36 @@ A personal tinyurl service.
 
 ## Features
 
-- Simple tinyurl service (in 100 lines).
-- Semi-auto update by a [remote config](#remote-config).
+- Lightweight tinyurl service (in 100 lines).
+- Semi-auto update with a [remote config](#remote-config).
 - Three types of routes:
   - redirect to an url
   - echo a string
-  - proxy mode
+  - proxy tunnel
 
-## Getting Started
+## Quick Start
 
-```bash
-git clone --depth 1 git@github.com:amio/now-go.git
-cd now-go
-
-# set up your redirection mapping in config.json
-vim config.json
-
-# run locally
-node cli.js -c config.json
-
-# or deploy to now.sh (perfect for a tinyurl service).
-now
-```
-
-That's it! Your tinyurl is online now.
-
-Further more, you can set a shorten alias:
+An example repo: https://github.com/amio/now-go-instance
 
 ```bash
-now alias set api-ownv3nc9f8.now.sh my-api.now.sh
+# grab the example repo
+git clone --depth 1 git@github.com:amio/now-go-instance.git
+
+# edit your redirection rules
+vim now-go-instance/config.json
+
+# deploy to now.sh (perfect for a tinyurl service).
+now now-go-instance
 ```
+
+That's it! Your tinyurl service is online now.
 
 If you don't have `now` yet, `npm install -g now`.
 Don't miss this awesome tool for [realtime global deployments][now].
 
-## Live Example
+## The `config.json`
 
-The config for https://go.now.sh (All configuration are optional):
+All configurations are optional:
 
 ```javascript
 {
@@ -66,7 +59,7 @@ The config for https://go.now.sh (All configuration are optional):
 }
 ```
 
-See it live:
+See it live(https://go.now.sh):
 
 - https://go.now.sh/home
 - https://go.now.sh/myip
@@ -76,12 +69,12 @@ See it live:
 
 ## Remote Config
 
-1. Instead of `node cli.js -c config.json`, start server with:
+- Instead of `now-go -c config.json`, start server with:
 ```
-node cli.js -c https://example.com/path-to-config.json
+now-go -c https://example.com/path-to-config.json
 ```
 
-2. Visit your server's root path(the sepcial route "/") will trigger an update task in background -- so called "semi-auto update" :P
+- Visit root path(the sepcial route "/") will trigger an update task in background -- so called "semi-auto update" :)
 
 ## License
 
