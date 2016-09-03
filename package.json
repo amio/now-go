@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node cli.js -c config.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "dependencies": {
     "deep-assign": "^2.0.0",
