@@ -46,12 +46,12 @@ All configurations are optional:
     // redirection (<value> is a url)
     "home": "https://github.com/amio/now-go",
     // proxy mode (<value> is a url prefixed with "PROXY >> ")
-    "myip": "PROXY >> https://httpbin.org/ip",
+    "ocelot": "PROXY >> https://example.com/path-to-ocelog.jpg",
     // echo a string (<value> is a string)
-    "hello": "Hi there!",
+    "now-go": "Now go, let the legend come back to life!",
 
     // special route for root path (<key> === "/")
-    "/": "Now go, let the legend come back to life!",
+    "/": "Yet another tinyurl service.",
     // special route for unmatched path: (<key> === "?")
     "?": "What are you looking for"
   },
@@ -62,8 +62,8 @@ All configurations are optional:
 See it live(https://go.now.sh):
 
 - https://go.now.sh/home
-- https://go.now.sh/myip
-- https://go.now.sh/hello
+- https://go.now.sh/ocelot
+- https://go.now.sh/now-go
 - https://go.now.sh/
 - https://go.now.sh/oops
 
