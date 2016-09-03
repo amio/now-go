@@ -46,7 +46,7 @@ All configurations are optional:
     // redirection (<value> is a url)
     "home": "https://github.com/amio/now-go",
     // proxy mode (<value> is a url prefixed with "PROXY >> ")
-    "ocelot": "PROXY >> https://example.com/path-to-ocelog.jpg",
+    "ocelot.jpg": "PROXY >> https://example.com/path-to-ocelog.jpg",
     // echo a string (<value> is a string)
     "now-go": "Now go, let the legend come back to life!",
 
@@ -59,13 +59,8 @@ All configurations are optional:
 }
 ```
 
-See it live(https://go.now.sh):
-
-- https://go.now.sh/home
-- https://go.now.sh/ocelot
-- https://go.now.sh/now-go
-- https://go.now.sh/
-- https://go.now.sh/oops
+This is the config powers http://go.now.sh, go try it.
+(While, maybe not exactly the full [latest version][config-eg])
 
 ## Remote Config
 
@@ -85,3 +80,4 @@ now-go -c https://example.com/path-to-config.json
 [npm-link]: http://www.npmjs.com/package/now-go
 [mit]:      http://opensource.org/licenses/MIT
 [author]:   http://github.com/amio
+[config-eg]:https://github.com/amio/now-go-instance/blob/master/config.json
