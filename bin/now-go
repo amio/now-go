@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+const help = require('../lib/help.js')
+const nowgo = require('..')
+
+const args = require('minimist')(process.argv.slice(2), {
+  alias: {
+    'c': 'config',
+    'v': 'version',
+    'h': 'help'
+  }
+})
+
+if (args.h) {
+  help()
+  process.exit()
+}
+
+if (args.v) {
+  console.log('v' + require('../package.json').version)
+  process.exit()
+}
+
+if (args.c) {
+  nowgo(args.config)
+} else {
+  help()
+  process.exit(1)
+}
