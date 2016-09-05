@@ -16,6 +16,9 @@
   "engines": {
     "node": ">=6.0.0"
   },
+  "standard": {
+    "parser": "babel-eslint"
+  },
   "repository": "amio/now-go",
   "author": "Amio <amio.cn@gmail.com>",
   "license": "MIT"
