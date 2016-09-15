@@ -18,20 +18,20 @@ A personal tinyurl service.
 
 ## Quick Start
 
-An example repo: https://github.com/amio/now-go-instance
+- cli
+  ```
+  now-go -c path/to/config.json
+  ```
 
-```bash
-# grab the example repo
-git clone --depth 1 git@github.com:amio/now-go-instance.git
+- programaticly
+  ```javascript
+  import nowgo from 'now-go'
 
-# edit your redirection rules
-vim now-go-instance/config.json
+  nowgo('./config.json')
+  ```
 
-# deploy to now.sh (perfect for a tinyurl service).
-now now-go-instance
-```
-
-That's it! Your tinyurl service is online now.
+Here is an [example repo](https://github.com/amio/now-go-instance)
+you can deploy to now.sh in 1 minute.
 
 If you don't have `now` yet, `npm install -g now`.
 Don't miss this awesome tool for [realtime global deployments][now].
@@ -55,7 +55,7 @@ All configurations are optional:
     // special route for unmatched path: (<key> === "?")
     "?": "What are you looking for"
   },
-  "port": 3000
+  "port": 3030 // optional, 3000 by default
 }
 ```
 
