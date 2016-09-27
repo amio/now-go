@@ -23,7 +23,7 @@
   "author": "Amio <amio.cn@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-eslint": "^6.1.2",
+    "babel-eslint": "^7.0.0",
     "standard": "^8.0.0"
   }
 }
