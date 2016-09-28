@@ -10,20 +10,16 @@
   },
   "dependencies": {
     "deep-assign": "^2.0.0",
-    "micro": "^6.0.1",
-    "node-fetch": "^1.6.1"
+    "micro": "^6.0.2",
+    "node-fetch": "^1.6.3"
   },
   "engines": {
     "node": ">=6.0.0"
-  },
-  "standard": {
-    "parser": "babel-eslint"
   },
   "repository": "amio/now-go",
   "author": "Amio <amio.cn@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-eslint": "^6.1.2",
-    "standard": "^8.0.0"
+    "standard": "^8.2.0"
   }
 }
