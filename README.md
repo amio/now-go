@@ -1,5 +1,7 @@
 # now-go [![npm-version][npm-badge]][npm-link]
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/amio/now-go.svg)](https://greenkeeper.io/)
+
 A personal tinyurl service.
 
 <p align="center">
