@@ -5,12 +5,11 @@
   "bin": "bin/now-go",
   "main": "lib/index.js",
   "scripts": {
-    "start": "node cli.js -c config.json",
     "test": "standard lib/**"
   },
   "dependencies": {
     "deep-assign": "^2.0.0",
-    "micro": "^7.0.0",
+    "micro": "^7.2.1",
     "node-fetch": "^1.6.3"
   },
   "engines": {
@@ -20,6 +19,6 @@
   "author": "Amio <amio.cn@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "standard": "^9.0.0"
+    "standard": "^9.0.2"
   }
 }
