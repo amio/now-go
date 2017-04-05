@@ -19,6 +19,6 @@
   "author": "Amio <amio.cn@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "standard": "^9.0.2"
+    "standard": "^10.0.0"
   }
 }
