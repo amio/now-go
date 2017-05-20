@@ -5,6 +5,7 @@
   "bin": "bin/now-go",
   "main": "lib/index.js",
   "scripts": {
+    "start": "bin/now-go",
     "test": "standard lib/**"
   },
   "dependencies": {
