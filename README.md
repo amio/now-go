@@ -15,28 +15,32 @@ A personal tinyurl service.
   - redirect to an url
   - echo a string
   - proxy tunnel
+- Deploy to now.sh with one command.
 
 ## Quick Start
 
 - cli
   ```
+  npm i -g now-go
   now-go -c path/to/config.json
   ```
 
 - programaticly
   ```javascript
   import nowgo from 'now-go'
-
   nowgo('./config.json')
   ```
 
-Here is an [example repo](https://github.com/amio/now-go-instance)
-you can deploy to now.sh in 1 minute.
+- deploy to now.sh
+  ```
+  now -e NOW_GO_CONFIG=http://example.com/config.json amio/now-go
+  now alias https://now-go-ab78a901.now.sh/ short.example.com
+  ```
 
-If you don't have `now` yet, `npm install -g now`.
-Don't miss this awesome tool for [realtime global deployments][now].
+  If you don't have `now` yet, `npm install -g now`.
+  Don't miss this awesome tool for [realtime global deployments][now].
 
-## The `config.json`
+## The `config.json` Example
 
 All configurations are optional:
 
@@ -53,23 +57,26 @@ All configurations are optional:
     // special route for root path (<key> === "/")
     "/": "Yet another tinyurl service.",
     // special route for unmatched path: (<key> === "?")
-    "?": "What are you looking for"
+    "?": "What are you looking for?"
   },
   "port": 3030 // optional, 3000 by default
 }
 ```
 
-This is the config powers http://go.now.sh, go try it.
-(While, maybe not exactly the full [latest version][config-eg])
+*This is the config for http://go.now.sh.*
 
 ## Remote Config
 
 - Instead of `now-go -c config.json`, start server with:
-```
-now-go -c https://example.com/path-to-config.json
-```
+  ```
+  now-go -c https://example.com/path-to-config.json
+  ```
+  or:
+  ```
+  NOW_GO_CONFIG=https://example.com/path-to-config.json now-go
+  ```
 
-- Visit root path(the sepcial route "/") will trigger an update task in background -- so called "semi-auto update" :)
+*NOTE: Visit root path(the sepcial route "/") will trigger an update task in background -- so called "semi-auto update" :)*
 
 ## License
 
