@@ -8,6 +8,9 @@ const args = require('minimist')(process.argv.slice(2), {
     'c': 'config',
     'v': 'version',
     'h': 'help'
+  },
+  default: {
+    'c': process.env.NOW_GO_CONFIG
   }
 })
 
