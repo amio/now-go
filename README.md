@@ -31,10 +31,9 @@ A personal tinyurl service.
   nowgo('./config.json')
   ```
 
-- deploy to now.sh
+- deploy to now.sh with a single command
   ```
-  now -e NOW_GO_CONFIG=http://example.com/config.json amio/now-go
-  now alias https://now-go-ab78a901.now.sh/ short.example.com
+  now amio/now-go -e NOW_GO_CONFIG=http://example.com/config.json
   ```
 
   If you don't have `now` yet, `npm install -g now`.
