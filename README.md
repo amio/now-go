@@ -1,6 +1,6 @@
 # now-go [![npm-version][npm-badge]][npm-link]
 
-A personal tinyurl service.
+A tinyurl service.
 
 <p align="center">
   <img src="https://cloud.githubusercontent.com/assets/215282/18083956/fd563db8-6ed7-11e6-955a-a107699cbd38.jpg" /><br/>
