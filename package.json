@@ -11,7 +11,7 @@
   "dependencies": {
     "deep-assign": "^2.0.0",
     "micro": "^9.0.0",
-    "node-fetch": "^1.6.3"
+    "node-fetch": "^2.0.0"
   },
   "engines": {
     "node": ">=6.0.0"
