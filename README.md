@@ -46,19 +46,19 @@ All configurations are optional:
 ```javascript
 {
   "routes": {
-    // redirection (<value> is a url)
+    // redirect to a url
     "home": "https://github.com/amio/now-go",
-    // proxy mode (<value> is a url prefixed with "PROXY >> ")
-    "ocelot.jpg": "PROXY >> https://example.com/path-to-ocelog.jpg",
-    // echo a string (<value> is a string)
+    // echo a string
     "now-go": "Now go, let the legend come back to life!",
+    // proxy mode
+    "ocelot.jpg": "PROXY >> https://amio.github.io/now-go-configs/ocelot.jpg",
 
-    // special route for root path (<key> === "/")
+    // special route for __root path__
     "/": "Yet another tinyurl service.",
-    // special route for unmatched path: (<key> === "?")
+    // special route for __unmatched path__
     "?": "What are you looking for?"
   },
-  "port": 3030 // optional, 3000 by default
+  "port": 8080 // optional, 3000 by default
 }
 ```
 

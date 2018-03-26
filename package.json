@@ -5,7 +5,7 @@
   "bin": "bin/now-go",
   "main": "lib/index.js",
   "scripts": {
-    "start": "bin/now-go",
+    "start": "bin/now-go -c https://amio.github.io/now-go-configs/go.json",
     "test": "standard lib/**"
   },
   "dependencies": {
