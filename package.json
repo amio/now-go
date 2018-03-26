@@ -11,6 +11,7 @@
   "dependencies": {
     "deep-assign": "^2.0.0",
     "micro": "^9.0.0",
+    "minimist": "^1.2.0",
     "node-fetch": "^2.0.0"
   },
   "engines": {
