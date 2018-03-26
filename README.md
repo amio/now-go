@@ -75,7 +75,7 @@ All configurations are optional:
   NOW_GO_CONFIG=https://example.com/path-to-config.json now-go
   ```
 
-*NOTE: Visit root path(the sepcial route "/") will trigger an update task in background -- so called "semi-auto update" :)*
+*NOTE: Visit root path(the sepcial route "/") will trigger an update in background -- so called "semi-auto update" :)*
 
 ## License
 
