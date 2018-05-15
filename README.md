@@ -10,11 +10,10 @@ A tinyurl service.
 ## Features
 
 - Lightweight tinyurl service (in 100 lines).
-- Semi-auto update with a [remote config](#remote-config).
 - Three types of routes:
-  - redirect to an url
-  - echo a string
-  - proxy tunnel
+  - URL: redirect to an url
+  - TEXT: echo a string
+  - FUNCTION: return a URL/TEXT by `req` argument
 - Deploy to now.sh with one command.
 
 ## Quick Start
@@ -28,54 +27,28 @@ A tinyurl service.
 - programaticly
   ```javascript
   import nowgo from 'now-go'
-  nowgo('./config.json')
+
+  const config = {/*...*/} // routes config
+  go(config)
   ```
 
-- deploy to now.sh with a single command
-  ```
-  now amio/now-go -e NOW_GO_CONFIG=http://example.com/config.json
-  ```
-
-  If you don't have `now` yet, `npm install -g now`.
-  Don't miss this awesome tool for [realtime global deployments][now].
-
-## The `config.json` Example
+## The `example.config.json`
 
 All configurations are optional:
 
 ```javascript
 {
-  "routes": {
-    // redirect to a url
-    "home": "https://github.com/amio/now-go",
-    // echo a string
-    "now-go": "Now go, let the legend come back to life!",
-    // proxy mode
-    "ocelot.jpg": "PROXY >> https://amio.github.io/now-go-configs/ocelot.jpg",
+  // redirect to a url
+  "/": "https://github.com/amio/now-go",
+  // echo a string
+  "/tag": "Now go, let the legend come back to life!",
 
-    // special route for __root path__
-    "/": "Yet another tinyurl service.",
-    // special route for __unmatched path__
-    "?": "What are you looking for?"
-  },
-  "port": 8080 // optional, 3000 by default
+  // special route for __unmatched path__
+  "*": "Yet another tinyurl service by now-go. https://github.com/amio/now-go"
 }
 ```
 
 *This is the config for http://go.now.sh.*
-
-## Remote Config
-
-- Instead of `now-go -c config.json`, start server with:
-  ```
-  now-go -c https://example.com/path-to-config.json
-  ```
-  or:
-  ```
-  NOW_GO_CONFIG=https://example.com/path-to-config.json now-go
-  ```
-
-*NOTE: Visit root path(the sepcial route "/") will trigger an update in background -- so called "semi-auto update" :)*
 
 ## License
 
@@ -86,4 +59,4 @@ All configurations are optional:
 [npm-link]: http://www.npmjs.com/package/now-go
 [mit]:      http://opensource.org/licenses/MIT
 [author]:   http://github.com/amio
-[config-eg]:https://github.com/amio/now-go-instance/blob/master/config.json
+[config-eg]:https://github.com/amio/now-go/blob/master/example.config.js
