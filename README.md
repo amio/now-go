@@ -28,9 +28,9 @@ A tinyurl service.
 
 - programmatically
   ```javascript
-  import nowgo from 'now-go'
+  const go = require('now-go')
+  const config = require('./path/to/config.json') // routes config
 
-  const config = {/*...*/} // routes config
   go(config)  // Start server on port 3000
   ```
 
@@ -38,24 +38,23 @@ A tinyurl service.
 
 ```javascript
 {
-  // redirect to a url
+  // 302 redirect
   "/": "https://github.com/amio/now-go",
 
-  // echo a string
+  // echo text
   "/tag": "Now go, let the legend come back to life!",
 
   // special route for __unmatched path__
-  "*": "Yet another tinyurl service by now-go. https://github.com/amio/now-go"
+  "*": "Yet another tinyurl service."
 }
 ```
 
-or [`example.config.js`](example.config.js) *The config for http://go.now.sh.*
+or [`example.config.js`](example.config.js) (*The config for http://go.now.sh.*)
 
 ## License
 
 [MIT][mit-link] © [Amio][author]
 
-[now]:      https://zeit.co/now
 [npm-badge]:https://img.shields.io/npm/v/now-go.svg?style=flat-square
 [npm-link]: http://www.npmjs.com/package/now-go
 [mit-link]: http://opensource.org/licenses/MIT
