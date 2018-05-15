@@ -7,8 +7,9 @@
   "bin": "bin/now-go",
   "main": "index.js",
   "scripts": {
+    "test": "standard",
     "start": "bin/now-go -c example.config.js",
-    "test": "standard"
+    "deploy": "now -T amio"
   },
   "dependencies": {
     "minimist": "^1.2.0"
