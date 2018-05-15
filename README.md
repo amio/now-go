@@ -24,22 +24,21 @@ A tinyurl service.
   now-go -c path/to/config.json
   ```
 
-- programaticly
+- programmatically
   ```javascript
   import nowgo from 'now-go'
 
   const config = {/*...*/} // routes config
-  go(config)
+  go(config)  // Start server on port 3000
   ```
 
 ## The `example.config.json`
-
-All configurations are optional:
 
 ```javascript
 {
   // redirect to a url
   "/": "https://github.com/amio/now-go",
+
   // echo a string
   "/tag": "Now go, let the legend come back to life!",
 
@@ -48,15 +47,14 @@ All configurations are optional:
 }
 ```
 
-*This is the config for http://go.now.sh.*
+or [`example.config.js`](example.config.js) *The config for http://go.now.sh.*
 
 ## License
 
-[MIT][mit] © [Amio][author]
+[MIT][mit-link] © [Amio][author]
 
 [now]:      https://zeit.co/now
 [npm-badge]:https://img.shields.io/npm/v/now-go.svg?style=flat-square
 [npm-link]: http://www.npmjs.com/package/now-go
-[mit]:      http://opensource.org/licenses/MIT
+[mit-link]: http://opensource.org/licenses/MIT
 [author]:   http://github.com/amio
-[config-eg]:https://github.com/amio/now-go/blob/master/example.config.js
