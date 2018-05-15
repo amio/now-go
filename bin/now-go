@@ -1,7 +1,25 @@
 #!/usr/bin/env node
 
-const help = require('../lib/help.js')
-const nowgo = require('..')
+const path = require('path')
+const go = require('../index.js')
+
+const help = `
+  USAGE
+
+      now-go -c <config-file>
+
+      -c  JS or JSON config file path
+      -v  Show version
+      -h  Show this help message
+
+  CONFIG FILE EXAMPLE
+
+      {
+        "/home": "https://github.com/amio/now-go",
+        "/": "Yet another tinyurl service",
+        "*": "What are you looking for"
+      }
+`
 
 const args = require('minimist')(process.argv.slice(2), {
   alias: {
@@ -14,19 +32,20 @@ const args = require('minimist')(process.argv.slice(2), {
   }
 })
 
-if (args.h) {
-  help()
+if (args.help) {
+  console.log(help)
   process.exit()
 }
 
-if (args.v) {
+if (args.version) {
   console.log('v' + require('../package.json').version)
   process.exit()
 }
 
-if (args.c) {
-  nowgo(args.config)
+if (args.config) {
+  const cfg = require(path.resolve(process.cwd(), args.config))
+  go(cfg)
 } else {
-  help()
+  console.log(help)
   process.exit(1)
 }
