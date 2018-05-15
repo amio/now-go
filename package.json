@@ -8,6 +8,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "standard",
+    "pretest": "npm run lint",
     "test": "tap test/*.spec.js --reporter spec",
     "start": "bin/now-go -c example.config.js",
     "deploy": "now -T amio"
