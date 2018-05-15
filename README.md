@@ -1,5 +1,7 @@
 # now-go [![npm-version][npm-badge]][npm-link]
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9d174bf9e6cc4c36995cb63a303553f5)](https://app.codacy.com/app/amio/now-go?utm_source=github.com&utm_medium=referral&utm_content=amio/now-go&utm_campaign=badger)
+
 A tinyurl service.
 
 <p align="center">
