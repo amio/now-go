@@ -6,29 +6,32 @@ const go = require('../index.js')
 const help = `
   USAGE
 
-      now-go -c <config-file>
+    now-go -c <config-file-path>
 
-      -c  JS or JSON config file path
-      -v  Show version
-      -h  Show this help message
+    -c, --config <path>   JS or JSON config file path
+    -p, --port <n>        Port to listen on (default: 3000)
+    -h, --help            Show this help message
+    -v, --version         Show version
 
-  CONFIG FILE EXAMPLE
+  EXAMPLE CONFIG JSON
 
-      {
-        "/home": "https://github.com/amio/now-go",
-        "/": "Yet another tinyurl service",
-        "*": "What are you looking for"
-      }
+    {
+      "/home": "https://github.com/amio/now-go",
+      "/": "Yet another tinyurl service",
+      "*": "What are you looking for"
+    }
 `
 
 const args = require('minimist')(process.argv.slice(2), {
   alias: {
+    'p': 'port',
     'c': 'config',
     'v': 'version',
     'h': 'help'
   },
   default: {
-    'c': process.env.NOW_GO_CONFIG
+    'c': process.env.NOW_GO_CONFIG,
+    'p': 3000
   }
 })
 
@@ -38,13 +41,14 @@ if (args.help) {
 }
 
 if (args.version) {
-  console.log('v' + require('../package.json').version)
+  console.log(require('../package.json').version)
   process.exit()
 }
 
 if (args.config) {
-  const cfg = require(path.resolve(process.cwd(), args.config))
-  go(cfg)
+  const config = require(path.resolve(process.cwd(), args.config))
+  const options = { port: parseInt(args.port) || 3000 }
+  go(config, options)
 } else {
   console.log(help)
   process.exit(1)
