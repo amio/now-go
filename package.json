@@ -7,7 +7,8 @@
   "bin": "bin/now-go",
   "main": "index.js",
   "scripts": {
-    "test": "standard",
+    "lint": "standard",
+    "test": "tap test/*.spec.js --reporter spec",
     "start": "bin/now-go -c example.config.js",
     "deploy": "now -T amio"
   },
@@ -15,7 +16,9 @@
     "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "standard": "^11.0.0"
+    "standard": "^11.0.0",
+    "supertest": "^3.1.0",
+    "tap": "^11.1.5"
   },
   "engines": {
     "node": ">=6.0.0"

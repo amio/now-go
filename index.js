@@ -1,19 +1,19 @@
 const http = require('http')
 
 function main (routesConfig, options = {}) {
-  const router = createRouter(routesConfig)
+  const router = createHandler(routesConfig)
   const { port = 3000 } = options
   http.createServer(router).listen(port)
 }
 
-function createRouter (routes) {
+function createHandler (routes) {
   return function router (req, res) {
     const signpost = routes[req.url] || routes['*']
-    signpostHandler(signpost, req, res, 0)
+    _signpostHandler(signpost, req, res, 0)
   }
 }
 
-function signpostHandler (signpost, req, res, depth) {
+function _signpostHandler (signpost, req, res, depth) {
   if (depth > 10) {
     res.writeHead(500, { 'Content-Type': 'text/plain' })
     return res.end('TOO_MUCH_DEPTH')
@@ -29,9 +29,9 @@ function signpostHandler (signpost, req, res, depth) {
     return res.end(signpost)
   }
 
-  if (isHandler(signpost)) {
+  if (isFunc(signpost)) {
     try {
-      return signpostHandler(signpost(req), req, res, depth + 1)
+      return _signpostHandler(signpost(req), req, res, depth + 1)
     } catch (e) {
       res.writeHead(500, { 'Content-Type': 'text/plain' })
       res.end(`CONFIG ERROR: ${e.toString()}`)
@@ -55,9 +55,9 @@ function isText (text) {
   return typeof text === 'string'
 }
 
-function isHandler (signpost) {
+function isFunc (signpost) {
   return typeof signpost === 'function'
 }
 
 module.exports = main
-exports.createHandler = createRouter
+module.exports.createHandler = createHandler

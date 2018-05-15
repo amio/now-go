@@ -9,7 +9,7 @@ A tinyurl service.
 
 ## Features
 
-> NOTE: this is the README of v2. For v1 docs, check npm [current release][npm-link].
+> WARNING: This is the doc of `now-go@next`. For v1 docs, check [current release][npm-link] on npm.
 
 - Lightweight tinyurl service (in 100 lines).
 - Three types of routes:
