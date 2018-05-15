@@ -3,7 +3,7 @@
 A tinyurl service.
 
 <p align="center">
-  <img src="https://cloud.githubusercontent.com/assets/215282/18083956/fd563db8-6ed7-11e6-955a-a107699cbd38.jpg" /><br/>
+  <img src="https://amio.github.io/now-go/hero.jpg" /><br/>
   <i>Now go, let the legend come back to life!</i>
 </p>
 
