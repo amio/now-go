@@ -2,26 +2,22 @@
   "name": "now-go",
   "version": "1.3.2",
   "description": "Personal tinyurl service.",
+  "author": "Amio <amio.cn@gmail.com>",
+  "repository": "amio/now-go",
   "bin": "bin/now-go",
   "main": "index.js",
   "scripts": {
     "start": "bin/now-go -c example.config.js",
-    "test": "standard lib/**"
+    "test": "standard"
   },
   "dependencies": {
-    "deep-assign": "^2.0.0",
-    "micro": "^9.3.0",
-    "minimist": "^1.2.0",
-    "node-fetch": "^2.0.0"
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "standard": "^11.0.0"
   },
   "engines": {
     "node": ">=6.0.0"
   },
-  "repository": "amio/now-go",
-  "author": "Amio <amio.cn@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "micro-dev": "^2.2.2",
-    "standard": "^11.0.0"
-  }
+  "license": "MIT"
 }

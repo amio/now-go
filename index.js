@@ -1,9 +1,9 @@
-const micro = require('micro')
+const http = require('http')
 
-function go (routesConfig, options = {}) {
+function main (routesConfig, options = {}) {
   const router = createRouter(routesConfig)
   const { port = 3000 } = options
-  micro(router).listen(port)
+  http.createServer(router).listen(port)
 }
 
 function createRouter (routes) {
@@ -59,5 +59,5 @@ function isHandler (signpost) {
   return typeof signpost === 'function'
 }
 
-module.exports = go
+module.exports = main
 exports.createHandler = createRouter
