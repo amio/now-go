@@ -9,6 +9,8 @@ A tinyurl service.
 
 ## Features
 
+> NOTE: this is the README of v2. For v1 docs, check npm [current release][npm-link].
+
 - Lightweight tinyurl service (in 100 lines).
 - Three types of routes:
   - URL: redirect to an url
