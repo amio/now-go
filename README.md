@@ -1,9 +1,9 @@
 # now-go [![npm-version][npm-badge]][npm-link]
 
-A tinyurl service.
+Create tinyurl/redirection service with ease.
 
 <p align="center">
-  <img src="https://amio.github.io/now-go/hero.jpg" /><br/>
+  <img src="https://amio.github.io/now-go/ocelot.jpg" /><br/>
   <i>Now go, let the legend come back to life!</i>
 </p>
 
@@ -19,7 +19,7 @@ A tinyurl service.
 ## Quick Start
 
 - cli
-  ```
+  ```bash
   npm i -g now-go
   now-go -c path/to/config.json
   ```
@@ -65,7 +65,7 @@ module.exports = {
 
 ## License
 
-[MIT][mit-link] © [Amio][author]
+[MIT](./LICENSE) © [Amio][author]
 
 [npm-badge]:https://img.shields.io/npm/v/now-go.svg?style=flat-square
 [npm-link]: http://www.npmjs.com/package/now-go
