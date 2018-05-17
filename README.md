@@ -9,8 +9,6 @@ A tinyurl service.
 
 ## Features
 
-> WARNING: This is the doc of `now-go@next`. For v1 docs, check [current release][npm-link] on npm.
-
 - Lightweight tinyurl service (in 100 lines).
 - Three types of routes:
   - URL: redirect to an url
@@ -34,22 +32,36 @@ A tinyurl service.
   go(config)  // Start server on port 3000
   ```
 
-## The `example.config.json`
+## Example config
+
+content of `config.json`:
 
 ```javascript
 {
-  // 302 redirect
-  "/": "https://github.com/amio/now-go",
+  // 302 redirection
+  "/": "https://example.com",
 
   // echo text
   "/tag": "Now go, let the legend come back to life!",
 
-  // special route for __unmatched path__
+  // "*" is a special route for unmatched path
   "*": "Yet another tinyurl service."
 }
 ```
 
-or [`example.config.js`](example.config.js) (*The config for http://go.now.sh.*)
+or you can use function for more advanced usage, like [`example.config.js`](example.config.js) (*The config for http://go.now.sh.*)
+
+```javascript
+// example.config.js
+module.exports = {
+  // stright routes
+  "/": "https://example.com",
+  "/hi": "Hello there!",
+
+  // functional route
+  "*": (req) => `This ${req.url} leads to nowhere.`
+}
+```
 
 ## License
 
