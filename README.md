@@ -65,7 +65,7 @@ module.exports = {
 
 ### Live Demo
 
-- http://go.now.sh and [it's config.js](example.config.js)
+- https://go.now.sh and [it's config.js](example.config.js)
 
 
 ## License
