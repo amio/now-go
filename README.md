@@ -1,4 +1,4 @@
-# now-go [![npm-version][npm-badge]][npm-link]
+# now-go [![npm-version][npm-badge]][npm-link] [![install-size][pp-badge]][pp-link]
 
 Create tinyurl/redirection service with ease.
 
@@ -13,7 +13,7 @@ Create tinyurl/redirection service with ease.
 - Three types of routes:
   - __`URL`__: redirect to an url
   - __`TEXT`__: echo a string
-  - __`FUNCTION`__: return a `URL`/`TEXT` by `req` argument
+  - __`FUNCTION`__: accepts `req` argument, returns `URL`/`TEXT` routes
 - Deploy to now.sh with one command.
 
 ## Quick Start
@@ -34,7 +34,7 @@ Create tinyurl/redirection service with ease.
 
 ## Example config
 
-content of `config.json`:
+### JSON file `go-config.json`:
 
 ```javascript
 {
@@ -49,12 +49,12 @@ content of `config.json`:
 }
 ```
 
-or you can use function for more advanced usage, like [`example.config.js`](example.config.js) (*The config for http://go.now.sh.*)
+### JS file `go-config.js`
 
 ```javascript
 // example.config.js
 module.exports = {
-  // stright routes
+  // simple routes
   "/": "https://example.com",
   "/hi": "Hello there!",
 
@@ -63,11 +63,18 @@ module.exports = {
 }
 ```
 
+### Live Demo
+
+- http://go.now.sh and [it's config.js](example.config.js)
+
+
 ## License
 
 [MIT](./LICENSE) © [Amio][author]
 
-[npm-badge]:https://img.shields.io/npm/v/now-go.svg?style=flat-square
+[npm-badge]:https://img.shields.io/npm/v/now-go.svg
 [npm-link]: http://www.npmjs.com/package/now-go
+[pp-badge]: https://packagephobia.now.sh/badge?p=now-go
+[pp-link]: https://packagephobia.now.sh/result?p=now-go
 [mit-link]: http://opensource.org/licenses/MIT
 [author]:   http://github.com/amio
