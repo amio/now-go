@@ -9,11 +9,11 @@ Create tinyurl/redirection service with ease.
 
 ## Features
 
-- Lightweight tinyurl service (in 100 lines).
+- Lightweight tinyurl service (~50 sloc).
 - Three types of routes:
-  - URL: redirect to an url
-  - TEXT: echo a string
-  - FUNCTION: return a URL/TEXT by `req` argument
+  - __`URL`__: redirect to an url
+  - __`TEXT`__: echo a string
+  - __`FUNCTION`__: return a `URL`/`TEXT` by `req` argument
 - Deploy to now.sh with one command.
 
 ## Quick Start
