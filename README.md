@@ -72,7 +72,7 @@ module.exports = {
 
 [MIT](./LICENSE) © [Amio][author]
 
-[npm-badge]:https://img.shields.io/npm/v/now-go.svg
+[npm-badge]:https://badgen.now.sh/npm/v/now-go.svg
 [npm-link]: http://www.npmjs.com/package/now-go
 [pp-badge]: https://packagephobia.now.sh/badge?p=now-go
 [pp-link]: https://packagephobia.now.sh/result?p=now-go
