@@ -32,9 +32,9 @@ Create tinyurl/redirection service with ease.
   go(config)  // Start server on port 3000
   ```
 
-## Example config
+## Example configs
 
-### JSON file `go-config.json`:
+### `go-config.json`
 
 ```javascript
 {
@@ -49,7 +49,7 @@ Create tinyurl/redirection service with ease.
 }
 ```
 
-### JS file `go-config.js`
+### `go-config.js`
 
 ```javascript
 // redirect everything to new-example.com
@@ -67,7 +67,7 @@ module.exports = {
 
 [MIT](./LICENSE) © [Amio][author]
 
-[npm-badge]:https://badgen.now.sh/npm/v/now-go.svg
+[npm-badge]:https://badgen.now.sh/npm/v/now-go
 [npm-link]: http://www.npmjs.com/package/now-go
 [pp-badge]: https://packagephobia.now.sh/badge?p=now-go
 [pp-link]: https://packagephobia.now.sh/result?p=now-go
