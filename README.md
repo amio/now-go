@@ -54,12 +54,10 @@ Create tinyurl/redirection service with ease.
 ```javascript
 // example.config.js
 module.exports = {
-  // simple routes
-  "/": "https://example.com",
-  "/hi": "Hello there!",
-
-  // functional route
-  "*": (req) => `This ${req.url} leads to nowhere.`
+  // simple route
+  "/": "Hello there!",
+  // functional route, redirect everything else to new-example.com
+  "*": (req) => `https://new-example.com${req.url}`
 }
 ```
 
