@@ -11,7 +11,8 @@
     "pretest": "npm run lint",
     "test": "tap test/*.spec.js --reporter spec",
     "start": "bin/now-go -c example.config.js",
-    "deploy": "now -T amio"
+    "predeploy": "now rm now-go --safe -y -T ngo || true",
+    "deploy": "now -T ngo --public && now alias"
   },
   "dependencies": {
     "minimist": "^1.2.0"
