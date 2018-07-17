@@ -52,11 +52,8 @@ Create tinyurl/redirection service with ease.
 ### JS file `go-config.js`
 
 ```javascript
-// example.config.js
+// redirect everything to new-example.com
 module.exports = {
-  // simple route
-  "/": "Hello there!",
-  // functional route, redirect everything else to new-example.com
   "*": (req) => `https://new-example.com${req.url}`
 }
 ```
