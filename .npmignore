@@ -1,5 +1,5 @@
 test
+.circleci
 .travis.yml
-example.config.js
+ocelot.jpg
 now.json
-hero.jpg
