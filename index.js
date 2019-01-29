@@ -47,12 +47,12 @@ function _signpostHandler (signpost, req, res, depth) {
   res.end('NOTFOUND')
 }
 
-function isURL (text) {
-  return isText(text) && /^https?:\/\/\w/.test(text)
+function isURL (str) {
+  return isText(str) && /^https?:\/\/\w/.test(str)
 }
 
-function isText (text) {
-  return typeof text === 'string'
+function isText (str) {
+  return typeof str === 'string'
 }
 
 function isFunc (signpost) {
