@@ -14,6 +14,8 @@ function createHandler (routes) {
 }
 
 function _signpostHandler (signpost, req, res, depth) {
+  res.setHeader('Cache-Control', 'public, max-age=60, s-maxage=86400, stale-while-revalidate=604800, stale-if-error=604800')
+
   if (depth > 10) {
     res.writeHead(500, { 'Content-Type': 'text/plain' })
     return res.end('TOO_MUCH_DEPTH')
