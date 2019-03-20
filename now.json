@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "alias": "go",
+  "alias": "go.now.sh",
   "builds": [
     { "src": "example/index.js", "use": "@now/node" }
   ],
