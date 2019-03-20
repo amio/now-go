@@ -1,6 +1,10 @@
-const tap = require('tap')
+const http = require('http')
 const request = require('supertest')
-const server = require('./server.js')
+const tap = require('tap')
+
+const exampleServer = require('../example/index.js')
+
+const server = http.createServer(exampleServer)
 
 tap.test('TEXT: echo text', t => {
   return request(server)
