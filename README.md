@@ -32,6 +32,17 @@ Create tinyurl/redirection service with ease.
   go(config)  // Start server on port 3000
   ```
 
+- create http handler
+  ```javascript
+  const http = require('http')
+  const { createHandler } = require('now-go')
+
+  const config = require('./path/to/config.json')
+  const handler = createHandler(config)
+
+  http.createServer(handler).listen(3000)
+  ```
+
 ## Example configs
 
 ### `go-config.json`
